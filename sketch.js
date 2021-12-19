@@ -1,12 +1,15 @@
 let size = 800;
-let dimensionFactor = 4;
-let margin = 5;
+//let dimFactor = Math.floor(Math.random() * 100);
+let dimFactor = 10;
+let ifMargin = true;
+let margin = ifMargin ? dimFactor : 0;
 
 function setup() {
   createCanvas(size, size);
   background(220);
   stroke(0, 0, 0);
   strokeCap(SQUARE);
+  strokeWeight(2);
 }
 
 function getRandomInt() {
@@ -14,18 +17,24 @@ function getRandomInt() {
 }
 
 function draw() {
-  for (let hPos = margin; hPos <= size - margin; hPos += 10) {
-    for (let pos = 5 + getRandomInt() * 10; pos < size - margin; pos += 20) {
-      line(pos, hPos, pos + 10, hPos);
+  // Draw horizontal lines
+  for (let hPos = margin; hPos < size - margin; hPos += 2 * dimFactor) {
+    for (
+      let pos = dimFactor + getRandomInt() * (2 * dimFactor);
+      pos < size - margin;
+      pos += 4 * dimFactor
+    ) {
+      line(pos, hPos, pos + 2 * dimFactor, hPos);
     }
   }
-  for (let vPos = margin; vPos <= size - margin; vPos += 10) {
+  // Draw vertical lines
+  for (let vPos = margin; vPos < size - margin; vPos += 2 * dimFactor) {
     for (
-      let pos = margin + getRandomInt() * 10;
+      let pos = margin + getRandomInt() * (2 * dimFactor);
       pos < size - margin;
-      pos += 20
+      pos += 4 * dimFactor
     ) {
-      line(vPos, pos, vPos, pos + 10);
+      line(vPos, pos, vPos, pos + 2 * dimFactor);
     }
   }
   noLoop();
