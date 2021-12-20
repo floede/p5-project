@@ -3,8 +3,9 @@ let size = 800;
 let dimFactor = 20;
 let ifMargin = true;
 let margin = ifMargin ? dimFactor : 0;
+const palette = Math.floor(Math.random() * colors.length);
 
-const pairs = [[20, 30, PROJECT]];
+const pairs = [[20, 30, "PROJECT"]];
 
 function setup() {
   createCanvas(size, size);
@@ -46,9 +47,10 @@ function draw() {
   //console.log(col[0]);
   //floodFill(createVector(400, 400), [38, 70, 83, 255]);
   //}
-  floodFill(createVector(100, 100), colors[0].rgb);
-  floodFill(createVector(250, 250), colors[1].rgb);
-  floodFill(createVector(400, 400), colors[2].rgb);
-  floodFill(createVector(550, 550), colors[3].rgb);
-  floodFill(createVector(700, 700), colors[4].rgb);
+
+  floodFill(createVector(100, 100), colors[palette][0].rgb);
+  floodFill(createVector(250, 250), colors[palette][1].rgb);
+  floodFill(createVector(400, 400), colors[palette][2].rgb);
+  floodFill(createVector(550, 550), colors[palette][3].rgb);
+  floodFill(createVector(700, 700), colors[palette][4].rgb);
 }
