@@ -1,8 +1,9 @@
 let size = 800;
 //let dimFactor = Math.floor(Math.random() * 100);
-let dimFactor = 20;
+let dimFactor = 10;
+let strokeWidth = 2;
 let ifMargin = true;
-let margin = ifMargin ? dimFactor : 0;
+let margin = ifMargin ? dimFactor + strokeWidth + (size % dimFactor) : 0;
 const palette = Math.floor(Math.random() * colors.length);
 
 const pairs = [[20, 30, "PROJECT"]];
@@ -11,8 +12,8 @@ function setup() {
   createCanvas(size, size);
   background(220);
   stroke(0, 0, 0);
-  strokeCap(PROJECT); //ROUND, SQUARE, PROJECT
-  strokeWeight(30);
+  strokeCap(SQUARE); //ROUND, SQUARE, PROJECT
+  strokeWeight(strokeWidth);
 }
 
 function getRandomInt() {
@@ -21,9 +22,9 @@ function getRandomInt() {
 
 function draw() {
   // Draw horizontal lines
-  for (let hPos = margin; hPos < size - margin; hPos += 2 * dimFactor) {
+  for (let hPos = margin; hPos < size - margin + 5; hPos += 2 * dimFactor) {
     for (
-      let pos = dimFactor + getRandomInt() * (2 * dimFactor);
+      let pos = margin + getRandomInt() * (2 * dimFactor);
       pos < size - margin;
       pos += 4 * dimFactor
     ) {
@@ -31,7 +32,7 @@ function draw() {
     }
   }
   // Draw vertical lines
-  for (let vPos = margin; vPos < size - margin; vPos += 2 * dimFactor) {
+  for (let vPos = margin; vPos < size - margin + 5; vPos += 2 * dimFactor) {
     for (
       let pos = margin + getRandomInt() * (2 * dimFactor);
       pos < size - margin;
