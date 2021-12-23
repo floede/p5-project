@@ -1,7 +1,7 @@
 let size = 800;
 //let dimFactor = Math.floor(Math.random() * 100);
-let dimFactor = 12;
-let strokeWidth = 10;
+let dimFactor = 4;
+let strokeWidth = 2;
 let ifMargin = false;
 let marginVal =
   0.5 * (dimFactor + strokeWidth + ((size - strokeWidth) % dimFactor));
@@ -19,7 +19,7 @@ function setup() {
   createCanvas(size, size);
   background(220);
   stroke(0, 0, 0);
-  strokeCap(ROUND); //ROUND, SQUARE, PROJECT
+  strokeCap(SQUARE); //ROUND, SQUARE, PROJECT
   strokeWeight(strokeWidth);
 }
 
