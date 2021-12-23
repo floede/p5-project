@@ -76,4 +76,83 @@ const colors = [
       rgb: [162, 210, 255, 255],
     },
   ],
+  [
+    {
+      name: "Orange Pantone",
+      hex: "ff5400",
+      rgb: [255, 84, 0, 255],
+    },
+    {
+      name: "Pumpkin",
+      hex: "ff6d00",
+      rgb: [255, 109, 0, 255],
+    },
+    {
+      name: "Dark Orange",
+      hex: "ff8500",
+      rgb: [255, 133, 0, 255],
+    },
+    {
+      name: "Yellow Orange Color Wheel",
+      hex: "ff9100",
+      rgb: [255, 145, 0, 255],
+    },
+    {
+      name: "Orange Peel",
+      hex: "ff9e00",
+      rgb: [255, 158, 0, 255],
+    },
+    {
+      name: "Cerulean Crayola",
+      hex: "00b4d8",
+      rgb: [0, 180, 216, 255],
+    },
+    {
+      name: "Blue Green",
+      hex: "0096c7",
+      rgb: [0, 150, 199, 255],
+    },
+    {
+      name: "Star Command Blue",
+      hex: "0077b6",
+      rgb: [0, 119, 182, 255],
+    },
+    {
+      name: "Dark Cornflower Blue",
+      hex: "023e8a",
+      rgb: [2, 62, 138, 255],
+    },
+    {
+      name: "Navy Blue",
+      hex: "03045e",
+      rgb: [3, 4, 94, 255],
+    },
+  ],
+  [
+    {
+      name: "Paradise Pink",
+      hex: "ef476f",
+      rgb: [239, 71, 111, 255],
+    },
+    {
+      name: "Orange Yellow Crayola",
+      hex: "ffd166",
+      rgb: [255, 209, 102, 255],
+    },
+    {
+      name: "Caribbean Green",
+      hex: "06d6a0",
+      rgb: [6, 214, 160, 255],
+    },
+    {
+      name: "Blue NCS",
+      hex: "118ab2",
+      rgb: [17, 138, 178, 255],
+    },
+    {
+      name: "Midnight Green Eagle Green",
+      hex: "073b4c",
+      rgb: [7, 59, 76, 255],
+    },
+  ],
 ];
