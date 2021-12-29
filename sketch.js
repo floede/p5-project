@@ -1,30 +1,51 @@
 let size = 800;
 //let dimFactor = Math.floor(Math.random() * 100);
-let dimFactor = 4;
-let strokeWidth = 2;
-let ifMargin = false;
+let dimFactor = 50;
+let strokeWidth = 40;
+let ifMargin = true;
 let marginVal =
   0.5 * (dimFactor + strokeWidth + ((size - strokeWidth) % dimFactor));
 let margin = ifMargin ? marginVal : -marginVal;
+
 const palette = Math.floor(Math.random() * colors.length);
+const colorArray = colors[palette];
+const fillStyle = ["background", "lines", "both"];
+
+let coordinates = [];
 
 const pairs = [
   [20, 30, "PROJECT"],
   [50, 44, "PROJECT"],
   [50, 44, "SQUARE"],
   [50, 44, "PROJECT"],
+  [200, 100, "ROUND"],
 ];
+
+function getCoordinates() {
+  return getRandomInt(Math.floor(size / dimFactor)) * dimFactor;
+}
+
+colorArray.forEach((elm, index) => {
+  let innerArray = [];
+  for (let j = 0; j < 2; j++) {
+    innerArray[j] = getCoordinates();
+  }
+  coordinates[index] = innerArray;
+});
 
 function setup() {
   createCanvas(size, size);
-  background(220);
-  stroke(0, 0, 0);
-  strokeCap(SQUARE); //ROUND, SQUARE, PROJECT
+  background(240);
+  stroke(20);
+  strokeCap(ROUND); //ROUND, SQUARE, PROJECT
   strokeWeight(strokeWidth);
+  noLoop();
 }
 
-function getRandomInt() {
-  return Math.floor(Math.random() * 2);
+function getRandomInt(factor) {
+  let number = Math.floor(Math.random() * factor);
+  //console.log("TEST RANDOM: ", number);
+  return number;
 }
 
 function draw() {
@@ -35,7 +56,7 @@ function draw() {
     hPos += dimFactor
   ) {
     for (
-      let pos = margin + getRandomInt() * dimFactor;
+      let pos = margin + getRandomInt(2) * dimFactor;
       pos < size - margin;
       pos += 2 * dimFactor
     ) {
@@ -49,24 +70,16 @@ function draw() {
     vPos += dimFactor
   ) {
     for (
-      let pos = margin + getRandomInt() * dimFactor;
+      let pos = margin + getRandomInt(2) * dimFactor;
       pos < size - margin;
       pos += 2 * dimFactor
     ) {
       line(vPos, pos, vPos, pos + dimFactor);
     }
   }
-  noLoop();
-  //rgb: [38, 70, 83],
-  //for (let i = 0; i < 5; i++) {
-  //let col = colors[i].rgb;
-  //console.log(col[0]);
-  //floodFill(createVector(400, 400), [38, 70, 83, 255]);
-  //}
 
-  floodFill(createVector(100, 100), colors[palette][0].rgb);
-  floodFill(createVector(250, 250), colors[palette][1].rgb);
-  floodFill(createVector(400, 400), colors[palette][2].rgb);
-  floodFill(createVector(550, 550), colors[palette][3].rgb);
-  floodFill(createVector(700, 700), colors[palette][4].rgb);
+  for (let i = 0; i < coordinates.length; i++) {
+    floodFill(createVector(...coordinates[i]), colors[palette][i].rgb);
+  }
+  filter(DILATE); //THRESHOLD, GRAY, OPAQUE, INVERT, POSTERIZE, BLUR, ERODE, DILATE or BLUR
 }
