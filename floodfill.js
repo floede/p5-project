@@ -7,29 +7,27 @@ function arrayEquals(a, b) {
   );
 }
 
-function expandToNeighbours(queue,current){
-  
-  x = current.x
-  y = current.y
-  
-  if(x-1>0){
-    queue.push(createVector(x-1,y))
+function expandToNeighbours(queue, current) {
+  x = current.x;
+  y = current.y;
+
+  if (x - 1 > 0) {
+    queue.push(createVector(x - 1, y));
   }
-  
-  if(x+1<width){
-    queue.push(createVector(x+1,y))
-  } 
-  
-  if(y-1>0){
-    queue.push(createVector(x,y-1))
+
+  if (x + 1 < width) {
+    queue.push(createVector(x + 1, y));
   }
-  
-  if(y+1<height){
-    queue.push(createVector(x,y+1))
+
+  if (y - 1 > 0) {
+    queue.push(createVector(x, y - 1));
   }
-  
-  return queue
-  
+
+  if (y + 1 < height) {
+    queue.push(createVector(x, y + 1));
+  }
+
+  return queue;
 }
 
 function floodFill(seed, fillColor) {
@@ -61,12 +59,11 @@ function floodFill(seed, fillColor) {
     }
 
     for (let i = 0; i < 4; i++) {
-      pixels[index+i] = fillColor[0 + i];
+      pixels[index + i] = fillColor[0 + i];
     }
-    
-    queue = expandToNeighbours(queue, current)  
+
+    queue = expandToNeighbours(queue, current);
   }
-  
-  updatePixels()
-  
+
+  updatePixels();
 }
