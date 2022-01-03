@@ -1,10 +1,10 @@
 let size = 800;
 //let dimFactor = Math.floor(Math.random() * 100);
-let dimFactor = 50;
-let strokeWidth = 40;
-let ifMargin = true;
-let marginVal =
-  0.5 * (dimFactor + strokeWidth + ((size - strokeWidth) % dimFactor));
+let dimFactor = 200;
+let strokeWidth = 100;
+let ifMargin = false;
+let marginVal = 0.5 * (strokeWidth + ((size - strokeWidth) % dimFactor));
+console.log("MARGIN: ", marginVal);
 let margin = ifMargin ? marginVal : -marginVal;
 
 const palette = Math.floor(Math.random() * colors.length);
@@ -35,7 +35,8 @@ colorArray.forEach((elm, index) => {
 
 function setup() {
   createCanvas(size, size);
-  background(240);
+  //smooth(8);
+  background(220);
   stroke(20);
   strokeCap(ROUND); //ROUND, SQUARE, PROJECT
   strokeWeight(strokeWidth);
